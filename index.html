@@ -1,236 +1,317 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Frixtar — Desarrollador Web</title>
-<link rel="stylesheet" href="estilos.css">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Frixtar — Zaid Jiménez · Desarrollador Full-Stack</title>
+  <meta name="description" content="Desarrollador full-stack basado en Oaxaca, México. Apps con impacto real, IA y tecnología cultural.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Syne:wght@400;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="cursor" id="cursor"></div>
-<div class="cursor-ring" id="cursor-ring"></div>
-<canvas id="bg-canvas"></canvas>
-
-<!-- NAV -->
-<nav id="navbar">
-  <a href="#hero" class="nav-logo">FX</a>
-  <ul class="nav-links">
-    <li><a href="#about">Sobre mí</a></li>
-    <li><a href="#projects">Proyectos</a></li>
-    <li><a href="#certs">Certificados</a></li>
-    <li><a href="#contact">Contacto</a></li>
-  </ul>
-</nav>
-
-<!-- HERO -->
-<section id="hero">
-  <div class="hero-tag">Disponible para colaborar</div>
-  <h1 class="hero-name">
-    FRIX<span class="accent">TAR</span><br>
-    ZAID
-  </h1>
-  <p class="hero-subtitle">
-    Desarrollador <span class="highlight">full‑stack</span> &amp; entusiasta de IA.<br>
-    <span id="typewriter"></span><span class="typewriter-cursor"></span>
-  </p>
-  <div class="hero-cta">
-    <a href="#projects" class="btn-jade">Ver proyectos</a>
-    <a href="https://github.com/frixtar" target="_blank" class="btn-ghost">GitHub ↗</a>
+  <!-- ══ PRELOADER ══ -->
+  <div id="preloader">
+    <div id="pre-logo"></div>
+    <div class="pre-bar-row">
+      <div class="pre-bar"><div id="pre-fill"></div></div>
+      <span id="pre-num">0%</span>
+    </div>
   </div>
-  <div class="scroll-hint">
-    <div class="scroll-line"></div>
-    Scroll
-  </div>
-</section>
 
-<!-- ABOUT -->
-<section id="about">
-  <div class="section-label">Sobre mí</div>
-  <div class="about-grid">
-    <div class="about-text">
-      <h2 class="section-title">PASIÓN<br>POR EL<br>CÓDIGO</h2>
-      <p>Soy <strong>Zaid Jiménez</strong>, desarrollador web basado en <strong>Oaxaca de Juárez</strong>. Me especializo en crear aplicaciones con impacto real para mi comunidad, integrando <strong>Inteligencia Artificial</strong> y tecnologías modernas.</p>
-      <p>He construido plataformas de gestión urbana, aplicaciones de turismo cultural y sistemas de salud comunitaria — siempre con una perspectiva oaxaqueña.</p>
-      <div class="stats-row">
-        <div class="stat-item">
-          <span class="stat-num">3+</span>
-          <span class="stat-label">Proyectos</span>
+  <!-- ══ OVERLAYS ══ -->
+  <div class="grain"            aria-hidden="true"></div>
+  <div id="scroll-progress"    aria-hidden="true"></div>
+  <canvas id="bg-canvas"       aria-hidden="true"></canvas>
+
+  <!-- ══ NAV ══ -->
+  <nav id="navbar">
+    <a href="#hero" class="nav-logo">FX</a>
+    <ul class="nav-links">
+      <li><a href="#about">Sobre mí</a></li>
+      <li><a href="#projects">Proyectos</a></li>
+      <li><a href="#certs">Certificados</a></li>
+      <li><a href="#contact">Contacto</a></li>
+    </ul>
+    <div class="nav-status">
+      <span class="status-dot"></span>Disponible
+    </div>
+  </nav>
+
+  <!-- ══ HERO ══ -->
+  <section id="hero">
+    <div class="hero-meta" id="hero-meta">
+      <span>Desarrollador Full-Stack</span>
+      <span class="sep">·</span>
+      <span>Oaxaca, México</span>
+      <span class="sep">·</span>
+      <span>2026</span>
+    </div>
+
+    <div class="hero-names" id="hero-names">
+      <div class="hn-wrap"><div class="hn-solid">ZAID</div></div>
+      <div class="hn-wrap"><div class="hn-outline">JIMÉNEZ</div></div>
+      <div class="hn-wrap"><div class="hn-accent">FRIXTAR</div></div>
+    </div>
+
+    <div class="hero-footer" id="hero-footer">
+      <p class="hero-sub">
+        <span id="typewriter"></span><span class="tw-cursor" aria-hidden="true"></span>
+      </p>
+      <div class="hero-ctas">
+        <a href="#projects" class="btn-solid">Ver proyectos</a>
+        <a href="https://github.com/frixtar" target="_blank" rel="noopener" class="btn-line">GitHub ↗</a>
+      </div>
+    </div>
+
+    <div class="scroll-ind" id="scroll-ind" aria-hidden="true">
+      <div class="si-line"></div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <!-- ══ MARQUEE ══ -->
+  <div class="marquee-wrap" aria-hidden="true">
+    <div class="mq-track">
+      <span>Next.js</span><em>·</em>
+      <span>TypeScript</span><em>·</em>
+      <span>React</span><em>·</em>
+      <span>Tailwind CSS</span><em>·</em>
+      <span>Node.js</span><em>·</em>
+      <span>Laravel</span><em>·</em>
+      <span>MongoDB</span><em>·</em>
+      <span>PostgreSQL</span><em>·</em>
+      <span>Claude API</span><em>·</em>
+      <span>Leaflet</span><em>·</em>
+      <span>Linux</span><em>·</em>
+      <span>Git</span><em>·</em>
+      <!-- duplicate for seamless loop -->
+      <span>Next.js</span><em>·</em>
+      <span>TypeScript</span><em>·</em>
+      <span>React</span><em>·</em>
+      <span>Tailwind CSS</span><em>·</em>
+      <span>Node.js</span><em>·</em>
+      <span>Laravel</span><em>·</em>
+      <span>MongoDB</span><em>·</em>
+      <span>PostgreSQL</span><em>·</em>
+      <span>Claude API</span><em>·</em>
+      <span>Leaflet</span><em>·</em>
+      <span>Linux</span><em>·</em>
+      <span>Git</span><em>·</em>
+    </div>
+  </div>
+
+  <!-- ══ ABOUT ══ -->
+  <section id="about">
+    <div class="section-eyebrow">
+      <span class="ey-num">00</span>
+      <span class="ey-label">Sobre mí</span>
+    </div>
+
+    <div class="about-layout">
+      <div class="about-left">
+        <h2 class="section-title">
+          <div class="tl"><span>PASIÓN</span></div>
+          <div class="tl"><span>POR EL</span></div>
+          <div class="tl"><span>CÓDIGO</span></div>
+        </h2>
+        <div class="about-bio fade-up">
+          <p>Soy <strong>Zaid Jiménez</strong>, desarrollador web basado en <strong>Oaxaca de Juárez</strong>. Me especializo en crear aplicaciones con impacto real para mi comunidad, integrando <strong>Inteligencia Artificial</strong> y tecnologías modernas.</p>
+          <p>He construido plataformas de gestión urbana, sistemas de salud comunitaria y aplicaciones de turismo cultural — siempre con una perspectiva oaxaqueña.</p>
         </div>
-        <div class="stat-item">
-          <span class="stat-num">3</span>
-          <span class="stat-label">Certificados</span>
+      </div>
+
+      <div class="about-right">
+        <div class="stats-bento">
+          <div class="stat-box fade-up" style="--d: .05s">
+            <span class="sb-num" data-target="4">0</span>
+            <span class="sb-label">Proyectos</span>
+          </div>
+          <div class="stat-box fade-up" style="--d: .1s">
+            <span class="sb-num" data-target="3">0</span>
+            <span class="sb-label">Certificados</span>
+          </div>
+          <div class="stat-box fade-up" style="--d: .15s">
+            <span class="sb-num" data-target="2">0</span>
+            <span class="sb-label">Hackathons</span>
+          </div>
+          <div class="stat-avail fade-up" style="--d: .22s">
+            <span class="avail-dot"></span>
+            <span>Disponible para proyectos</span>
+          </div>
         </div>
-        <div class="stat-item">
-          <span class="stat-num">2026</span>
-          <span class="stat-label">En activo</span>
+        <div class="about-photo fade-up" style="--d: .12s">
+          <img
+            src="./imagen/fritar.png"
+            alt="Zaid Jiménez — Frixtar, desarrollador web en Oaxaca"
+            onerror="this.parentElement.classList.add('no-photo'); this.remove();"
+          >
+          <div class="photo-label">Zaid Jiménez / Frixtar — Oaxaca</div>
         </div>
       </div>
-      <div class="skills-grid" style="margin-top:2.5rem">
-        <span class="skill-tag">Next.js 14</span>
-        <span class="skill-tag">TypeScript</span>
-        <span class="skill-tag">React</span>
-        <span class="skill-tag">Tailwind CSS</span>
-        <span class="skill-tag">PHP / Laravel</span>
-        <span class="skill-tag">Node.js</span>
-        <span class="skill-tag">MySQL / MongoDB</span>
-        <span class="skill-tag">Claude API</span>
-        <span class="skill-tag">Leaflet / Mapas</span>
-        <span class="skill-tag">Git / GitHub</span>
-        <span class="skill-tag">Linux / Ubuntu</span>
-        <span class="skill-tag">REST APIs</span>
+    </div>
+  </section>
+
+  <!-- ══ PROJECTS ══ -->
+  <section id="projects">
+    <div class="section-eyebrow">
+      <span class="ey-num">01</span>
+      <span class="ey-label">Proyectos</span>
+    </div>
+    <h2 class="section-title">
+      <div class="tl"><span>LO QUE</span></div>
+      <div class="tl"><span>HE CONSTRUIDO</span></div>
+    </h2>
+
+    <!-- Featured -->
+    <article class="project-feat fade-up">
+      <div class="pf-sidebar">
+        <span class="pf-num">01</span>
+        <div class="pf-badges">
+          <span class="badge">Web App</span>
+          <span class="badge">IA</span>
+          <span class="badge">Mapas</span>
+        </div>
       </div>
-    </div>
-    <div class="about-visual reveal">
-      <div class="profile-box">
-        <img src="./imagen/fritar.png" alt="Frixtar — Zaid Jiménez"
-             onerror="this.style.display='none'; this.parentElement.style.background='var(--bg3)';">
+      <div class="pf-body">
+        <h3 class="pf-title">ECOAPP</h3>
+        <p class="pf-desc">Plataforma de gestión de residuos sólidos para Oaxaca con rastreo GPS en tiempo real, clasificación de basura por IA con Claude Vision API y mapas interactivos para reportes ciudadanos.</p>
+        <div class="pf-stack">
+          <span>Next.js 14</span>
+          <span>TypeScript</span>
+          <span>Tailwind CSS</span>
+          <span>Leaflet</span>
+          <span>Claude API</span>
+        </div>
+        <a href="https://github.com/frixtar/Ecoapp" target="_blank" rel="noopener" class="pf-link">
+          Ver en GitHub <span class="arr">↗</span>
+        </a>
       </div>
+    </article>
+
+    <!-- Row list -->
+    <div class="project-rows">
+      <article class="project-row fade-up" style="--d: .06s">
+        <span class="pr-idx">02</span>
+        <div class="pr-info">
+          <span class="pr-title" data-scramble="BLOODCONNECT">BLOODCONNECT</span>
+          <span class="pr-cat">Salud · Hackathon</span>
+        </div>
+        <div class="pr-stack">React · Node.js · QR · Geolocalización</div>
+        <a href="https://github.com/frixtar" target="_blank" rel="noopener" class="pr-link">Ver ↗</a>
+      </article>
+
+      <article class="project-row fade-up" style="--d: .12s">
+        <span class="pr-idx">03</span>
+        <div class="pr-info">
+          <span class="pr-title" data-scramble="TURISMO OAXACA">TURISMO OAXACA</span>
+          <span class="pr-cat">Turismo · IA · Cultural</span>
+        </div>
+        <div class="pr-stack">React · Claude API · Multi-rol</div>
+        <a href="https://github.com/frixtar/Turismo-Oaxaca" target="_blank" rel="noopener" class="pr-link">Ver ↗</a>
+      </article>
+
+      <article class="project-row fade-up" style="--d: .18s">
+        <span class="pr-idx">04</span>
+        <div class="pr-info">
+          <span class="pr-title" data-scramble="TIENDA ABARROTES">TIENDA ABARROTES</span>
+          <span class="pr-cat">E-commerce · Full Stack</span>
+        </div>
+        <div class="pr-stack">PHP · Laravel · MySQL</div>
+        <a href="https://github.com/frixtar/Dasboart" target="_blank" rel="noopener" class="pr-link">Ver ↗</a>
+      </article>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- PROJECTS -->
-<section id="projects">
-  <div class="section-label reveal">Proyectos</div>
-  <h2 class="section-title reveal">LO QUE<br>HE CONSTRUIDO</h2>
-  <div class="projects-grid">
+  <!-- ══ CERTS ══ -->
+  <section id="certs">
+    <div class="section-eyebrow">
+      <span class="ey-num">02</span>
+      <span class="ey-label">Formación</span>
+    </div>
+    <h2 class="section-title">
+      <div class="tl"><span>CERTIFICADOS</span></div>
+      <div class="tl"><span>&amp; APRENDIZAJES</span></div>
+    </h2>
+    <div class="certs-grid">
 
-    <div class="project-card reveal" style="transition-delay:.05s">
-      <div class="project-num">01</div>
-      <div class="project-tag-line">Web App · IA · Mapas</div>
-      <h3 class="project-title">Ecoapp</h3>
-      <p class="project-desc">Plataforma de gestión de residuos sólidos para Oaxaca con rastreo GPS en tiempo real, clasificación de basura por IA (Claude Vision) y mapas interactivos para reportes ciudadanos.</p>
-      <div class="tech-row">
-        <span class="tech-pill">Next.js 14</span>
-        <span class="tech-pill">TypeScript</span>
-        <span class="tech-pill">Tailwind CSS</span>
-        <span class="tech-pill">Leaflet</span>
-        <span class="tech-pill">Claude API</span>
+      <div class="cert-card fade-up" style="--d: .04s">
+        <span class="cc-num">01</span>
+        <div class="cc-icon">🛡️</div>
+        <div class="cc-provider">Google Cloud</div>
+        <div class="cc-name">Ciberseguridad</div>
       </div>
-      <a href="https://github.com/frixtar/Ecoapp" target="_blank" class="project-link">
-        Ver en GitHub <span class="arrow">↗</span>
-      </a>
-    </div>
 
-    <div class="project-card reveal" style="transition-delay:.12s">
-      <div class="project-num">02</div>
-      <div class="project-tag-line">Web App · Salud · Hackathon</div>
-      <h3 class="project-title">BloodConnect</h3>
-      <p class="project-desc">Sistema de donación de sangre con panel de administración hospitalaria, alertas de geolocalización, check-in por QR y sistema de recompensas gamificado para donadores.</p>
-      <div class="tech-row">
-        <span class="tech-pill">React</span>
-        <span class="tech-pill">Node.js</span>
-        <span class="tech-pill">Geolocalización</span>
-        <span class="tech-pill">QR Code</span>
-        <span class="tech-pill">Gamificación</span>
+      <div class="cert-card fade-up" style="--d: .09s">
+        <span class="cc-num">02</span>
+        <div class="cc-icon">📊</div>
+        <div class="cc-provider">Google Cloud</div>
+        <div class="cc-name">Análisis de Datos</div>
       </div>
-      <a href="https://github.com/frixtar" target="_blank" class="project-link">
-        Ver en GitHub <span class="arrow">↗</span>
-      </a>
-    </div>
 
-    <div class="project-card reveal" style="transition-delay:.19s">
-      <div class="project-num">03</div>
-      <div class="project-tag-line">App Turismo · IA · Cultural</div>
-      <h3 class="project-title">Turismo Oaxaca</h3>
-      <p class="project-desc">Aplicación multi-rol para turistas, comercios y curadores. Incluye itinerarios generados por IA, puntos de interés, gastronomía y pueblos mágicos con recomendaciones personalizadas por ubicación.</p>
-      <div class="tech-row">
-        <span class="tech-pill">React</span>
-        <span class="tech-pill">Claude API</span>
-        <span class="tech-pill">Geolocalización</span>
-        <span class="tech-pill">Multi-rol</span>
+      <div class="cert-card fade-up" style="--d: .14s">
+        <span class="cc-num">03</span>
+        <div class="cc-icon">💻</div>
+        <div class="cc-provider">Certificación Profesional</div>
+        <div class="cc-name">Diseño Web Responsivo</div>
       </div>
-      <a href="https://github.com/frixtar/Turismo-Oaxaca" target="_blank" class="project-link">
-        Ver en GitHub <span class="arrow">↗</span>
-      </a>
-    </div>
 
-    <div class="project-card reveal" style="transition-delay:.26s">
-      <div class="project-num">04</div>
-      <div class="project-tag-line">E-commerce · Full Stack</div>
-      <h3 class="project-title">Tienda de Abarrotes Online</h3>
-      <p class="project-desc">Tienda en línea completa con carrito de compras, pasarela de pago, gestión de usuarios, login/registro, ventana de ventas y dashboard administrativo.</p>
-      <div class="tech-row">
-        <span class="tech-pill">PHP</span>
-        <span class="tech-pill">Laravel</span>
-        <span class="tech-pill">MySQL</span>
-        <span class="tech-pill">Dashboard</span>
+      <div class="cert-card fade-up" style="--d: .19s">
+        <span class="cc-num">04</span>
+        <div class="cc-icon">🌐</div>
+        <div class="cc-provider">Formación · Ubuntu</div>
+        <div class="cc-name">Redes &amp; Linux — DHCP · Netplan · systemctl</div>
       </div>
-      <a href="https://github.com/frixtar/Dasboart" target="_blank" class="project-link">
-        Ver en GitHub <span class="arrow">↗</span>
-      </a>
+
+      <div class="cert-card fade-up" style="--d: .24s">
+        <span class="cc-num">05</span>
+        <div class="cc-icon">🤖</div>
+        <div class="cc-provider">Proyecto aplicado</div>
+        <div class="cc-name">Integración de IA — Claude Vision API</div>
+      </div>
+
+      <div class="cert-card fade-up" style="--d: .29s">
+        <span class="cc-num">06</span>
+        <div class="cc-icon">🗄️</div>
+        <div class="cc-provider">Ingeniería de Software</div>
+        <div class="cc-name">Diseño de Bases de Datos &amp; MERN Stack</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══ CONTACT ══ -->
+  <section id="contact">
+    <div class="section-eyebrow">
+      <span class="ey-num">03</span>
+      <span class="ey-label">Contacto</span>
     </div>
 
-  </div>
-</section>
+    <a href="mailto:zaid@example.com" class="section-title contact-big">
+      <div class="tl"><span>¿TRABAJAMOS</span></div>
+      <div class="tl"><span>JUNTOS?</span></div>
+    </a>
 
-<!-- CERTS -->
-<section id="certs">
-  <div class="section-label reveal">Formación</div>
-  <h2 class="section-title reveal">CERTIFICADOS<br>&amp; APRENDIZAJES</h2>
-  <div class="certs-grid">
-    <div class="cert-card reveal" style="transition-delay:.05s">
-      <div class="cert-icon">🛡️</div>
-      <div class="cert-provider">Google Cloud</div>
-      <div class="cert-name">Ciberseguridad</div>
-      <div class="cert-glow"></div>
-    </div>
-    <div class="cert-card reveal" style="transition-delay:.12s">
-      <div class="cert-icon">📊</div>
-      <div class="cert-provider">Google Cloud</div>
-      <div class="cert-name">Análisis de Datos</div>
-      <div class="cert-glow"></div>
-    </div>
-    <div class="cert-card reveal" style="transition-delay:.19s">
-      <div class="cert-icon">💻</div>
-      <div class="cert-provider">Certificación Profesional</div>
-      <div class="cert-name">Diseño Web Responsivo</div>
-      <div class="cert-glow"></div>
-    </div>
-    <div class="cert-card reveal" style="transition-delay:.26s">
-      <div class="cert-icon">🌐</div>
-      <div class="cert-provider">Formación · Ubuntu</div>
-      <div class="cert-name">Redes &amp; Linux — DHCP, Netplan, systemctl</div>
-      <div class="cert-glow"></div>
-    </div>
-    <div class="cert-card reveal" style="transition-delay:.33s">
-      <div class="cert-icon">🤖</div>
-      <div class="cert-provider">Proyecto aplicado</div>
-      <div class="cert-name">Integración de IA — Claude Vision API</div>
-      <div class="cert-glow"></div>
-    </div>
-    <div class="cert-card reveal" style="transition-delay:.4s">
-      <div class="cert-icon">🗄️</div>
-      <div class="cert-provider">Ingeniería de Software</div>
-      <div class="cert-name">Diseño de Bases de Datos &amp; MERN Stack</div>
-      <div class="cert-glow"></div>
-    </div>
-  </div>
-</section>
+    <p class="contact-sub fade-up">
+      Abierto a proyectos, colaboraciones y oportunidades.<br>
+      <strong>Escríbeme y construyamos algo.</strong>
+    </p>
 
-<!-- CONTACT -->
-<section id="contact">
-  <div class="section-label reveal" style="justify-content:center">Contacto</div>
-  <div class="contact-big reveal">¿TRABAJAMOS<br>JUNTOS?</div>
-  <p class="reveal" style="color:var(--muted);font-size:.95rem;max-width:440px;margin:0 auto;line-height:1.7;">
-    Estoy abierto a nuevos proyectos, colaboraciones y oportunidades. No dudes en escribirme.
-  </p>
-  <div class="contact-links reveal">
-    <a href="https://github.com/frixtar" target="_blank" class="contact-link">GitHub</a>
-    <a href="https://www.linkedin.com/in/zaid-jimenez-17a425186/" target="_blank" class="contact-link">LinkedIn</a>
-    <a href="mailto:zaid@example.com" class="contact-link">Email</a>
-  </div>
-</section>
+    <div class="contact-links fade-up" style="--d: .15s">
+      <a href="https://github.com/frixtar" target="_blank" rel="noopener" class="cl">GitHub</a>
+      <a href="https://www.linkedin.com/in/zaid-jimenez-17a425186/" target="_blank" rel="noopener" class="cl">LinkedIn</a>
+      <a href="mailto:zaid@example.com" class="cl">Email</a>
+    </div>
+  </section>
 
-<footer>
-  <span class="footer-text">© 2026 Frixtar — Zaid Jiménez</span>
-  <div class="footer-dot" title="En línea"></div>
-  <span class="footer-text">Oaxaca de Juárez, Mex.</span>
-</footer>
-<script src="scrip.js"></script>
+  <footer>
+    <span class="ft-text">© 2026 Frixtar — Zaid Jiménez</span>
+    <div class="ft-dot" title="En línea"></div>
+    <span class="ft-text">Oaxaca de Juárez, Mex.</span>
+  </footer>
+
+  <script src="main.js"></script>
 </body>
 </html>
